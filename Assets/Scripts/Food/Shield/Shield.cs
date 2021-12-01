@@ -20,6 +20,11 @@ public bool IsAbilityActivate
 }
 
 
+void Start()
+{
+  charType = Characters.Shield;
+}
+
 void OnTriggerEnter2D( Collider2D target)
 {
   if ( target.tag == "Player")

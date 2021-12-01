@@ -6,7 +6,7 @@ public class Food : MonoBehaviour
 {
   [SerializeField] BoxCollider2D gridArea;
 
-  public Characters Type; 
+  public Characters charType; 
 
 
   public void randomisePosition()

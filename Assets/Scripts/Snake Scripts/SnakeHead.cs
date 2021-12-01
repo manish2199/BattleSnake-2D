@@ -20,29 +20,43 @@ public class SnakeHead : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D target)
   {
-    if(target.tag == "Apple")
+  
+   switch(target.tag)
+   {
+    
+    case  "Apple" : 
     {
       snakeHitSomething("Apple");      
+      break;
     }
-    if(target.tag == "RedChilli")
+    case "RedChilli":
     {
       snakeHitSomething("RedChilli");
+      break;
     }
-    if(target.tag == "Shield")
+    case "Shield" :
     {
       snakeHitSomething("shield");
+      break;
     }
-    if(target.tag == "Speed")
+    case  "Speed":
     {
       snakeHitSomething("SpeedBooster");
+      break;
     }
-    if( target.tag == "Boundary")
+    case  "Boundary":
     {
       snakeHitSomething("Boundary");
+      break;
     }
-    if(target.tag == "SnakeBody")
+    case "SnakeBody":
     {
       snakeHitSomething("SnakeBody");
+      break;
     }
+     
+   }
+
+
  }
 }

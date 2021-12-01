@@ -15,7 +15,6 @@ public class SnakeMovement : MonoBehaviour
   [SerializeField] Transform segmentPrefab;
 
 
-
   public Vector2 SnakeDirection
   {
     get{ return snakeDirection;}
@@ -31,13 +30,11 @@ public class SnakeMovement : MonoBehaviour
     
     _segments = new List<Transform>();
     _segments.Add(this.transform);
-    print("Hello");
   }
 
 
   void Start()
   {
-    // orthographicBound(camera);
     InitialSize();
   }
 
@@ -110,9 +107,6 @@ public class SnakeMovement : MonoBehaviour
   {
    Transform segment =  Instantiate(segmentPrefab).transform;
    segment.position = _segments[_segments.Count - 1].position;
-  //  segment.position.x = segment.position.x + 0.5f;
-  //  segment.position.y = segment.position.y + 0.5f;
-
    _segments.Add(segment);
   }
 

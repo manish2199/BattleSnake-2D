@@ -5,9 +5,9 @@ using UnityEngine;
 public class MassGainer : Food
 {
   
- void Start()
+ void Start() 
  {
-    Type = Characters.Food;
+    charType = Characters.Apple; 
     randomisePosition();
  }
  

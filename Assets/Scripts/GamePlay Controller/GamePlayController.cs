@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -39,6 +40,9 @@ public class GamePlayController : MonoBehaviour
   [SerializeField] SpeedBooster speedBoosterScript;
   public GameObject speedBooster;
   [SerializeField] Slider speedBoosterSlider;
+
+
+  public GameObject gameOverPanel;
    
   void Awake()
   {
@@ -58,7 +62,6 @@ public class GamePlayController : MonoBehaviour
   void Update()
   {
 
-    scoreText.text = "Score : " +score;
 
     spawnMassBurner();
 
@@ -66,7 +69,7 @@ public class GamePlayController : MonoBehaviour
 
     checkSpeedBooster();
 
-    setShieldImageState();
+    setShieldAnimationState();
   }
 
   void OnEnable()
@@ -93,6 +96,8 @@ public class GamePlayController : MonoBehaviour
         snakeSegments.snakeGrow();
       }
       score += 20;
+     scoreText.text = "Score : " +score;
+ 
       break;
      }
 
@@ -123,7 +128,7 @@ public class GamePlayController : MonoBehaviour
       case "Boundary":
      {
       changeSnakeDirection();
-      print("Hit Boundary");
+      // print("Hit Boundary");
       break;
      }
 
@@ -135,8 +140,7 @@ public class GamePlayController : MonoBehaviour
     }
   }
 
-
-  void setShieldImageState()
+  void setShieldAnimationState()
   {
     if(shieldScript.IsAbilityActivate)
     {
@@ -195,7 +199,7 @@ public class GamePlayController : MonoBehaviour
       boundries[3].transform.position.x+snakeSegments.SnakeDirection.x,
       Mathf.Round(snakeHead.transform.position.y)+snakeSegments.SnakeDirection.y,
       0f);
-     print ( "Right Boundary");
+    //  print ( "Right Boundary");
     }
     if( snakeSegments.SnakeDirection == Vector2.right)
     {
@@ -203,7 +207,7 @@ public class GamePlayController : MonoBehaviour
       boundries[2].transform.position.x+snakeSegments.SnakeDirection.x,
       Mathf.Round(snakeHead.transform.position.y)+snakeSegments.SnakeDirection.y,
       0f);
-     print ( "Left Boundary");
+    //  print ( "Left Boundary");
 
     }
     if( snakeSegments.SnakeDirection == Vector2.up)
@@ -212,7 +216,7 @@ public class GamePlayController : MonoBehaviour
       Mathf.Round(snakeHead.transform.position.x)+snakeSegments.SnakeDirection.x,
       (boundries[1].transform.position.y+snakeSegments.SnakeDirection.y),
       0f);
-     print ( "Bottom Boundary");
+    //  print ( "Bottom Boundary");
 
     }
     if( snakeSegments.SnakeDirection == Vector2.down)
@@ -222,7 +226,7 @@ public class GamePlayController : MonoBehaviour
       (boundries[0].transform.position.y+snakeSegments.SnakeDirection.y),
      0f);
 
-     print ( "Top Boundary");
+    //  print ( "Top Boundary");
     }
   }
 
@@ -231,7 +235,7 @@ public class GamePlayController : MonoBehaviour
     if(!shieldScript.IsAbilityActivate)
       { 
        Time.timeScale = 0f;
-       print("Player Died");
+       gameOverPanel.SetActive(true);
       }
   }
 
@@ -263,11 +267,32 @@ public class GamePlayController : MonoBehaviour
        Timer = 0f;
       }
     }    
+
+   
+   public void Restart()
+   {
+     Time.timeScale = 1f;
+     SceneManager.LoadScene(1);
+   }
+
+   public void Quit()
+   {
+     Time.timeScale = 1f;
+     SceneManager.LoadScene(0);
+   }
+   
+
+
 }
 
 
 public enum Characters
 {
   Snake = 1,
-  Food = 2,
+  Apple=2,
+  Chilli=3,
+  Shield=4,
+  SpeedBooster=5,
+  Boundary=6,
+  SnakeBody=7,
 }

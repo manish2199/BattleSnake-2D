@@ -9,6 +9,14 @@ public class SpeedBooster : Shield
  
 [SerializeField]Slider speedBoosterSlider;
 
+
+void Start()
+{
+    charType = Characters.SpeedBooster;
+}
+
+
+
 void OnEnable()
 {
     Invoke("DisableObject",3f);
