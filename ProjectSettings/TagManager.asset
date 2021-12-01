@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Apple
+  - RedChilli
+  - Boundary
+  - SnakeBody
+  - Shield
+  - Speed
   layers:
   - Default
   - TransparentFX
@@ -11,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Snake
+  - Food
+  - Walls
   - 
   - 
   - 
