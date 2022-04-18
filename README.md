@@ -2,10 +2,15 @@
 2D Snake game with Different Special Abilities
 
 
-#Feature
+#Features
+
 1.Reactive UI
-2.Power Ups like Shield , SpeedBooster .
+
+2.Power Ups like Shield , SpeedBooster.
+
 3.Different Snake Foods like MassBurner(Reduce Snake Size),MassGainer(Increase Snake Size)
+
+##
 
 #GamePlay ScreenShots
 
